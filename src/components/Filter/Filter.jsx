@@ -19,10 +19,10 @@ export default function Filter (props) {
 
         }
         >
-            <Form>
-                <label htmlFor="car_brand">
+            <Form className={css.filterForm}>
+                <label htmlFor="car_brand" >
                     <p>Car brand</p>
-                    <Field as="select" name="car_brand" >
+                    <Field as="select" name="car_brand" className={css.field} >
                         <option value="">Enter the text</option>
                         <option value="bmw">bmw</option>
                         <option value="lim">lim</option>
@@ -32,7 +32,7 @@ export default function Filter (props) {
                 </label>
                 <label htmlFor="price">
                     <p>Price/1 hour</p>
-                    <Field as="select" name="price">
+                    <Field as="select" name="price" className={css.field}>
                         <option value="">To $</option>
                         <option value="10">10</option>
                         <option value="20">20</option>
@@ -42,10 +42,10 @@ export default function Filter (props) {
                 </label>
                 <label>
                     <p>Car milieage/km</p>
-                    <Field type="text" name="car_milieage_from" placeholder="From" />
-                    <Field type="text" name="car_milieage_to" placeholder="To" />
+                    <Field type="text" name="car_milieage_from" placeholder="From" className={`${css.field} ${css.fieldFrom}`} />
+                    <Field type="text" name="car_milieage_to" placeholder="To" className={`${css.field} ${css.fieldTo}`} />
                 </label>
-                <button type="submit">Search</button>
+                <button className={css.searchBtn} type="submit">Search</button>
             </Form>
 
 

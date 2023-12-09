@@ -4,12 +4,13 @@
   --color-black: #1A1919;
   --color-black-font: #121417;
   --color-grey-font: #12141780;
+  --color-grey-dark: #8A8A89;
+  --color-grey-bg: #F7F7FB;
   --color-blue:  #3470FF;
   --color-blue-deep: #0B44CD;
-  --color-grey-bg: #F7F7FB;
   --color-dirty-white: #FFFFFFCC;
 
-
+  font-family: "Manrope", sans-serif;
 
 }
 
