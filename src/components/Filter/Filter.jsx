@@ -4,10 +4,21 @@ import css from "./Filter.module.css";
 export default function Filter (props) {
     return (<>
         <Formik
-        
+          initialValues={
+                {car_brand: "",
+                price: "",
+                car_milieage_from: "",
+                car_milieage_to: ""
+                }
+            }
+
+        onSubmit = {(values, actions) => {
+            console.dir(values);
+            console.dir(actions);
+            }
+
+        }
         >
-
-
             <Form>
                 <label htmlFor="car_brand">
                     <p>Car brand</p>
@@ -17,8 +28,24 @@ export default function Filter (props) {
                         <option value="lim">lim</option>
                         <option value="car">car</option>
                     </Field>
+                    <ErrorMessage name="car_brand" />
                 </label>
-                <ErrorMessage name="car_brand" />
+                <label htmlFor="price">
+                    <p>Price/1 hour</p>
+                    <Field as="select" name="price">
+                        <option value="">To $</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="40">40</option>
+                    </Field>
+                </label>
+                <label>
+                    <p>Car milieage/km</p>
+                    <Field type="text" name="car_milieage_from" placeholder="From" />
+                    <Field type="text" name="car_milieage_to" placeholder="To" />
+                </label>
+                <button type="submit">Search</button>
             </Form>
 
 
