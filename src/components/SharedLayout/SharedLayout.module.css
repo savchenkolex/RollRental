@@ -37,7 +37,6 @@
 
 .menuBox li {
     padding-left: 15px;
-    margin: 4px 6px;
 }
 
 .menuLink {
@@ -46,17 +45,19 @@
     color: var(--color-blue);
     padding: 8px 12px;
     margin: 0;
-    background-color: transparent;
+    background-color: white;
     border-radius: 8px;
-    /* border: 1px solid var(--color-grey-font); */
+    box-shadow: none;
     transition: background-color 250ms linear,
-                color 250 ms linear;
+                border-bottom 550ms linear,
+                box-shadow 250ms linear;
 }
 
 .menuLink:hover {
     color: var(--color-blue-deep);
     background-color: var(--color-grey-bg);
-    
+    border-bottom: 2px solid var(--color-blue-deep);
+    box-shadow: 0px 0px 6px 0px rgba(167,170,194,0.75);
 }
 
 .menuLink:visited {
