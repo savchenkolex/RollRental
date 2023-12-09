@@ -1,0 +1,73 @@
+.sectionHome {
+    background-color: var(--color-black);
+    font-family: "Monserrat", serif;
+    color: var(--color-dirty-white);
+    height: 90vh;
+}
+
+.homePageInfo h1 {
+    text-align: center;
+    margin: 0;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .homePageInfo div p {
+    margin: 0;
+    text-align: justify;
+
+  }
+
+  .pulsarBox {
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pulsar {
+    display: block;
+  width: 100px;
+  height: 100px;
+  font-size: 16px;
+  font-weight: 400;
+ text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 100px;
+  /* letter-spacing: -1px; */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  background: #5a99d4;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+  animation: pulse 1.5s infinite;
+  transition: font-weight 250ms linear,
+              font-size 250ms linear,
+              color 250ms linear,
+              background-color 250ms linear;
+  
+  }
+
+  .pulsar:hover {
+    animation: none;
+    color: yellow;
+    background-color: var(--color-blue-deep);
+    font-weight: 900;
+    font-size: 24px;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(.9);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+    }
+      100% {
+      transform: scale(.9);
+      box-shadow: 0 0 0 30px rgba(232, 76, 61, 0);
+    }
+  }
