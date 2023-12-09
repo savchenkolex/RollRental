@@ -16,6 +16,10 @@
     color: var(--color-blue-deep);
 }
 
+.logo:visited {
+    color: var(--color-blue-deep);
+}
+
 .moto {
     font-size: 24px;
     padding-left: 40px;
