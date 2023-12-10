@@ -3,7 +3,7 @@
     display: flex;
     gap: 18px;  
     justify-content: center;
-    align-items: end; 
+    align-items: flex-end; 
 }
 
 .filterForm label p {
@@ -23,6 +23,20 @@
     border-radius: 14px;
     color: var(--color-black-font);
     font-size: 18px;
+}
+
+.field option {
+    border:none;
+    outline: none;
+    color: red;
+    width: 50px;
+    border-radius: 14px;
+}
+
+.optionItem {
+    color: orange;
+    background-color: blueviolet;
+    width: 32px;
 }
 
 .searchBtn {

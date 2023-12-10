@@ -23,7 +23,7 @@ export default function Filter (props) {
                 <label htmlFor="car_brand" >
                     <p>Car brand</p>
                     <Field as="select" name="car_brand" className={css.field} >
-                        <option value="">Enter the text</option>
+                        <option className={css.optionItem} value="">Enter the text</option>
                         <option value="bmw">bmw</option>
                         <option value="lim">lim</option>
                         <option value="car">car</option>
