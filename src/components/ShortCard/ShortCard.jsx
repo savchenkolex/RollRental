@@ -13,7 +13,6 @@ export default function ShortCard({ car }) {
   };
 
   const {
-    id,
     year,
     make,
     model,

@@ -1,5 +1,6 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import css from "./Filter.module.css";
+// import { useDispatch } from "react-redux";
 
 export default function Filter (props) {
     return (<>
@@ -20,7 +21,7 @@ export default function Filter (props) {
         }
         >
             <Form className={css.filterForm}>
-                <label htmlFor="car_brand" >
+                <label  >
                     <p>Car brand</p>
                     <Field as="select" name="car_brand" className={css.field} >
                         <option className={css.optionItem} value="">Enter the text</option>
@@ -30,7 +31,7 @@ export default function Filter (props) {
                     </Field>
                     <ErrorMessage name="car_brand" />
                 </label>
-                <label htmlFor="price">
+                <label >
                     <p>Price/1 hour</p>
                     <Field as="select" name="price" className={css.field}>
                         <option value="">To $</option>

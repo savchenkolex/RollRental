@@ -8,7 +8,6 @@ import { onNextPage } from "../../redux/catalog/catalogSlice";
 import {
   selectCars,
   selectIsLoading,
-  selectFavorites,
   selectPage,
 } from "../../redux/selectors";
 
@@ -28,7 +27,7 @@ export default function Catalog() {
   useEffect(() => {
     dispatch(getCarsWithPagination(page));
   
-  }, [page]);
+  }, [page, dispatch]);
 
   return (
     <>
