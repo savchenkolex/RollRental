@@ -1,16 +1,15 @@
 {
   "files": {
-    "main.css": "/roll-rental/static/css/main.f855e6bc.css",
-    "main.js": "/roll-rental/static/js/main.6e7b9cbf.js",
-    "static/js/787.df45a62c.chunk.js": "/roll-rental/static/js/787.df45a62c.chunk.js",
-    "static/media/logo.svg": "/roll-rental/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/roll-rental/static/css/main.46f86996.css",
+    "main.js": "/roll-rental/static/js/main.fd2ac9ca.js",
+    "static/media/normal.svg": "/roll-rental/static/media/normal.85e5e609fbd160636b3aa5439e7b5f3c.svg",
     "index.html": "/roll-rental/index.html",
-    "main.f855e6bc.css.map": "/roll-rental/static/css/main.f855e6bc.css.map",
-    "main.6e7b9cbf.js.map": "/roll-rental/static/js/main.6e7b9cbf.js.map",
-    "787.df45a62c.chunk.js.map": "/roll-rental/static/js/787.df45a62c.chunk.js.map"
+    "static/media/active.svg": "/roll-rental/static/media/active.ca328ba8fd1a33232c33b80a393a7bca.svg",
+    "main.46f86996.css.map": "/roll-rental/static/css/main.46f86996.css.map",
+    "main.fd2ac9ca.js.map": "/roll-rental/static/js/main.fd2ac9ca.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.6e7b9cbf.js"
+    "static/css/main.46f86996.css",
+    "static/js/main.fd2ac9ca.js"
   ]
 }
