@@ -1,49 +1,59 @@
-import { useEffect, useState } from 'react';
-import Filter from '../Filter/Filter';
-import ShortCard from '../ShortCard/ShortCard';
-import css from './Catalog.module.css';
-import axios from 'axios';
+import { useEffect } from "react";
+import Filter from "../Filter/Filter";
+import ShortCard from "../ShortCard/ShortCard";
+import css from "./Catalog.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getCarsWithPagination } from "../../redux/catalog/operations";
+import { onNextPage } from "../../redux/catalog/catalogSlice";
+import {
+  selectCars,
+  selectIsLoading,
+  selectFavorites,
+  selectPage,
+} from "../../redux/selectors";
 
-export default function Catalog () {
+export default function Catalog() {
 
-    const [pageNum, setPageNum] = useState(1);
-    const [carsData, setCarsData] = useState([]);
+  const dispatch = useDispatch();
 
-    const handleLoadMoreBtn = () => {
-        setPageNum(prev => prev + 1 );
-    }
+  const handleLoadMoreBtn = () => {
+    dispatch(onNextPage());
+    dispatch(getCarsWithPagination(page + 1));
+  };
 
-    useEffect(()=>{
-        const url = new URL(`https://65750e78b2fbb8f6509ce075.mockapi.io/api/v1/Advert`);
-        url.searchParams.append('page', pageNum);
-        url.searchParams.append('limit', 12);
-        // url.searchParams.append('id', '9582');
-        // // url.searchParams.append('id', '9590');
-        // console.log(url);    
-        axios.get(url)
-            .then(res => {
-                console.log(res);
-                setCarsData(prev => {return [...prev, ...res.data]});
-            })
-            .catch(error => {
-                console.error(error);
-            })
-    }, [pageNum])
+  const carsData = useSelector(selectCars);
+  const page = useSelector(selectPage);
+  const isLoading = useSelector(selectIsLoading);
 
-    return(<>
-        <div className={css.sectionCatalog}>
-            <div className="container">
-                <Filter />
-                <ul className={css.cardListArea}>
-                    {carsData.length > 0 ? carsData.map((car) => {
-                       return <ShortCard car={car} />     
-                    }): <p>Cars not found. Nothing to do.</p> } 
-                     
-                </ul>
-                <div className={css.loadMoreBtnBox}>
-                    <button className={css.loadMoreBtn} onClick={handleLoadMoreBtn}>Load more</button>
-                </div>
-            </div>
+  useEffect(() => {
+    dispatch(getCarsWithPagination(page));
+  
+  }, [page]);
+
+  return (
+    <>
+      <div className={css.sectionCatalog}>
+        <div className="container">
+          <Filter />
+          <ul className={css.cardListArea}>
+            {carsData ? (
+              carsData.map((car) => {
+                return <ShortCard key={car.id} car={car} />;
+              })
+            ) : (
+              <p>Cars not found. Nothing to do.</p>
+            )}
+          </ul>
+          <div className={css.loadMoreBtnBox}>
+            {isLoading ? 
+                <p>Loading...</p> 
+                :
+                <button className={css.loadMoreBtn} onClick={handleLoadMoreBtn}>
+                      Load more
+                </button>}
+          </div>
         </div>
-    </>)
+      </div>
+    </>
+  );
 }
