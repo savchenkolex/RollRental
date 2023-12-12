@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/roll-rental/static/css/main.46f86996.css",
-    "main.js": "/roll-rental/static/js/main.fd2ac9ca.js",
+    "main.js": "/roll-rental/static/js/main.befa3a11.js",
     "static/media/normal.svg": "/roll-rental/static/media/normal.85e5e609fbd160636b3aa5439e7b5f3c.svg",
     "index.html": "/roll-rental/index.html",
     "static/media/active.svg": "/roll-rental/static/media/active.ca328ba8fd1a33232c33b80a393a7bca.svg",
     "main.46f86996.css.map": "/roll-rental/static/css/main.46f86996.css.map",
-    "main.fd2ac9ca.js.map": "/roll-rental/static/js/main.fd2ac9ca.js.map"
+    "main.befa3a11.js.map": "/roll-rental/static/js/main.befa3a11.js.map"
   },
   "entrypoints": [
     "static/css/main.46f86996.css",
-    "static/js/main.fd2ac9ca.js"
+    "static/js/main.befa3a11.js"
   ]
 }
