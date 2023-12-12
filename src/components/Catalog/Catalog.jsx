@@ -15,14 +15,16 @@ export default function Catalog() {
 
   const dispatch = useDispatch();
 
-  const handleLoadMoreBtn = () => {
-    dispatch(onNextPage());
-    dispatch(getCarsWithPagination(page + 1));
-  };
-
   const carsData = useSelector(selectCars);
   const page = useSelector(selectPage);
   const isLoading = useSelector(selectIsLoading);
+
+  const handleLoadMoreBtn = () => {
+    console.log("loadMore");
+    dispatch(onNextPage());
+    console.log("page: ", page);
+    dispatch(getCarsWithPagination(page + 1));
+  };
 
   useEffect(() => {
     dispatch(getCarsWithPagination(page));
