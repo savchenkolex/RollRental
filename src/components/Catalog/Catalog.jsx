@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Filter from "../Filter/Filter";
 import ShortCard from "../ShortCard/ShortCard";
 import css from "./Catalog.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCars, getCarsWithPagination } from "../../redux/catalog/operations";
+import { getCarsWithPagination } from "../../redux/catalog/operations";
 import { onNextPage } from "../../redux/catalog/catalogSlice";
 import {
   selectCars,
@@ -12,6 +12,7 @@ import {
 } from "../../redux/selectors";
 
 export default function Catalog() {
+  const [maxPrice, setMaxPrice] = useState(100);
 
   const dispatch = useDispatch();
 
@@ -27,9 +28,19 @@ export default function Catalog() {
     dispatch(getCarsWithPagination(page + 1));
   };
 
+  useEffect(()=>{
+    const allPrice = carsData.map((car)=>{
+      // console.log(car);
+      return Number(car.rentalPrice.replace('$',''));
+    });
+
+    setMaxPrice(Math.max(...allPrice));
+
+  }, [carsData])
+
   useEffect(() => {
     dispatch(getCarsWithPagination(page));
-    dispatch(getAllCars());
+    
   
   }, [page, dispatch]);
 
@@ -37,7 +48,7 @@ export default function Catalog() {
     <>
       <div className={css.sectionCatalog}>
         <div className="container">
-          <Filter />
+          <Filter maxPrice={maxPrice} />
           <ul className={css.cardListArea}>
             {carsData ? (
               carsData.map((car) => {

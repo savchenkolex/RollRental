@@ -11,13 +11,14 @@ import {
   selectModalData,
 } from "../../redux/selectors";
 
-export default function Filter(props) {
+export default function Filter({maxPrice}) {
   const dispatch = useDispatch();
   const brands = useSelector(selectBrands);
   const isActiv = useSelector(selectIsModalOpen);
   const modalData = useSelector(selectModalData);
   console.log("My modal ", isActiv);
   console.log("my modal data: ", modalData);
+  console.log("maxPrice: ", maxPrice);
 
   const handleClick = () => {
     console.log("click");
@@ -29,6 +30,14 @@ export default function Filter(props) {
     console.log("modal: ", isActiv);
     console.log("data ", modalData);
   };
+
+  function priceOptions(maxNumber) {
+    const priceArray = [];
+    for(let i = 10; i <= maxNumber; i = i + 10){
+      priceArray.push(i);
+    }
+    return priceArray;
+  }
 
   useEffect(() => {
     dispatch(getBrands());
@@ -49,7 +58,7 @@ export default function Filter(props) {
       >
         <Form className={css.filterForm}>
           <CustomSelect name="brand" label="Car brand" options={brands} />
-          <CustomSelect name="price" label="Price/1 hour" options={[10, 20, 30, 40, 50]} />
+          <CustomSelect name="price" label="Price/1 hour" options={priceOptions(maxPrice)} />
           <label >
             <p>Car milieage/km</p>
             <Field
