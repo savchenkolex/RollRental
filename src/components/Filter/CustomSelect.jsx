@@ -8,18 +8,20 @@ export default function CustomSelect({ label, options, ...props }) {
 
   const handleOption = (value) => {
     field.onChange({ target: { name: props.name, value } });
-    setIsOpen(false);
+    console.log("clap");
+    setIsOpen(prev => !prev);
   };
 
   return (
     <>
       <div className={css.customSelectContainer}>
-        <label>{label}</label>
+        <label>
+          <p>{label}</p>
         <div
           className={`custom-select ${isOpen ? "open" : ""}`}
           onClick={() => setIsOpen(!isOpen)}
         >
-          <div className="selected-option">{field.value}</div>
+          <div className="selected-option">{field.value ? field.value : "select"}</div>
           {isOpen && (
             <ul className="options-list">
               {options.map((option) => (
@@ -33,6 +35,7 @@ export default function CustomSelect({ label, options, ...props }) {
         {meta.touched && meta.error ? (
           <div className="error">{meta.error}</div>
         ) : null}
+        </label>
       </div>
     </>
   );

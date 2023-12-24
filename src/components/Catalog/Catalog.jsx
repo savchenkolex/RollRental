@@ -3,7 +3,7 @@ import Filter from "../Filter/Filter";
 import ShortCard from "../ShortCard/ShortCard";
 import css from "./Catalog.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getCarsWithPagination } from "../../redux/catalog/operations";
+import { getAllCars, getCarsWithPagination } from "../../redux/catalog/operations";
 import { onNextPage } from "../../redux/catalog/catalogSlice";
 import {
   selectCars,
@@ -19,6 +19,7 @@ export default function Catalog() {
   const page = useSelector(selectPage);
   const isLoading = useSelector(selectIsLoading);
 
+    
   const handleLoadMoreBtn = () => {
     console.log("loadMore");
     dispatch(onNextPage());
@@ -28,6 +29,7 @@ export default function Catalog() {
 
   useEffect(() => {
     dispatch(getCarsWithPagination(page));
+    dispatch(getAllCars());
   
   }, [page, dispatch]);
 

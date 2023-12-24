@@ -14,6 +14,7 @@ import storage from "redux-persist/lib/storage";
 import favoriteReducer from "./favorite/favoriteSlice";
 import catalogReducer from "./catalog/catalogSlice";
 import filtersReducer from "./filter/filtersSlice";
+import modalReducer from "./modal/modalSlice";
 
 const favoritePersistConfig = {
   key: "favorites",
@@ -31,6 +32,7 @@ export const store = configureStore({
     favorite: persistedUserReducer,
     catalog: catalogReducer,
     filters: filtersReducer,
+    modal: modalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

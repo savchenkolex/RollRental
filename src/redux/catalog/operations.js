@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const url = `https://65750e78b2fbb8f6509ce075.mockapi.io/api/v1/Advert`;
+const url = "https://65750e78b2fbb8f6509ce075.mockapi.io/api/v1/Advert";
 
 export const getCarsWithPagination = createAsyncThunk(
     "catalog/getCarsWithPagination",
@@ -21,6 +21,7 @@ export const getAllCars = createAsyncThunk(
     async (_, thunkAPI) => {
         try {
             const res = await axios.get(url);
+            
             return res.data;
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
@@ -51,6 +52,7 @@ export const getBrands = createAsyncThunk(
             allData.forEach(car => {
             uniquBrands.add(car.make);
             });
+            
             return Array.from(uniquBrands)
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);

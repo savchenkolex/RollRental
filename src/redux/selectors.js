@@ -10,3 +10,6 @@ export const selectFavorites = (state) => state.favorites.favorites;
 
 export const selectFilters = (state) => state.filters.favorites;
 export const selectFiltersFav = (state) => state.filters.filtersFavorite;
+
+export const selectIsModalOpen = (state) => state.modal.isModalOpen;
+export const selectModalData = (state) => state.modal.modalData;
